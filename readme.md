@@ -17,17 +17,29 @@
 </thead>
 <tbody>
 <tr>
-<td>Android System WebView</td>
+<td>
+
+[Android System WebView](https://github.com/nativize/nativize-webview)
+
+</td>
 <td>JetBrains Compose</td>
 <td colspan="4"></td>
 </tr>
 <tr>
-<td>Microsoft Edge WebView2</td>
+<td>
+
+[Microsoft Edge WebView2](https://github.com/nativize/nativize-webview2)
+
+</td>
 <td colspan="4"></td>
-<td>Windows SDK</td>
+<td>C++/WinRT</td>
 </tr>
 <tr>
-<td>WebKit2</td>
+<td>
+
+[WebKit](https://github.com/nativize/nativize-webkit2)
+
+</td>
 <td></td>
 <td colspan="2">SwiftUI</td>
 <td>
@@ -38,14 +50,18 @@ GTK[^GTK]
 <td></td>
 </tr>
 <tr>
-<td>QtWebEngine</td>
+<td>
+
+[QtWebEngine](https://github.com/nativize/nativize-qtwebengine)
+
+</td>
 <td colspan="2">
 
 </td>
 <td colspan="4">Qt6</td>
 </tr>
 <tr>
-<td>WebUI</td>
+<td>WebUI(unimplemented)</td>
 <td colspan="2"></td>
 <td colspan="4">WebUI</td>
 </tr>
