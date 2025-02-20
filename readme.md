@@ -68,5 +68,5 @@ GTK[^GTK]
 </tbody>
 </table>
 
-[^GTK]: [GTK 4 + WebKitGTK 6.0](https://github.com/nativize-webkitgtk)  
-	[GTK 3 + WebKit2GTK 4.1](https://github.com/nativize-webkit2gtk)
+[^GTK]: [GTK 4 + WebKitGTK 6.0](https://github.com/nativize/nativize-webkitgtk)  
+	[GTK 3 + WebKit2GTK 4.1](https://github.com/nativize/nativize-webkit2gtk)
