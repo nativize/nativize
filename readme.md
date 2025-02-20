@@ -61,12 +61,12 @@ GTK[^GTK]
 <td colspan="4">Qt6</td>
 </tr>
 <tr>
-<td>WebUI(unimplemented)</td>
+<td>WebUI</td>
 <td colspan="2"></td>
 <td colspan="4">WebUI</td>
 </tr>
 </tbody>
 </table>
 
-[^GTK]: GTK 4 + WebKitGTK 6.0  
-	GTK 3 + WebKit2GTK 4.1
+[^GTK]: [GTK 4 + WebKitGTK 6.0](https://github.com/nativize-webkitgtk)  
+	[GTK 3 + WebKit2GTK 4.1](https://github.com/nativize-webkit2gtk)
