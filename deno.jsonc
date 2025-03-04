@@ -2,7 +2,7 @@
   "name": "@nativize/nativize",
   "version": "0.1.0",
   "license": "MIT",
-  "exports": "./mod.ts",
+  "exports": "./mod.js",
   "imports": {
     "@std/fs": "jsr:@std/fs",
     "@std/jsonc": "jsr:@std/jsonc"
