@@ -1,55 +1,51 @@
 //export stuffs
 
 if (import.meta.main) {
-  //const { parseArguments } = await import("./src/command.js");
+  const { parseArguments } = await import("./src/command.js");
+  const { commands, options } = parseArguments(Deno.args);
 
-  // TODO: finish this one
-  // 1. Parse everything. to substring, arguments, etc.
-  // console.log(parse(Deno.args));
-  // 2. then execute command
+  let backendPath = options["--backend-path"][0];
 
-  // PROTOTYPE CODE
-  const { defaultBackend } = await import("./src/platform.js");
-  const { existsSync } = await import("@std/fs");
+  if (!backendPath) {
+    const { defaultBackend } = await import("./src/platform.js");
+    const { existsSync } = await import("@std/fs");
 
-  const platform = "windows";
-  const backend = defaultBackend[platform];
+    const backend = options["--backend"][0] ?? defaultBackend[Deno.build.os];
 
-  if (!existsSync("./.nativize/")) {
-    await Deno.mkdir("./.nativize/");
-  }
+    backendPath = `./.nativize/${backend}`;
 
-  if (!existsSync(`./.nativize/${backend}`)) {
-    console.log("Cloning backend...");
-    try {
-      const process = new Deno.Command("git", {
-        args: [
-          "clone",
-          `https://github.com/nativize/nativize-${backend}`,
-          `./.nativize/${backend}`,
-        ],
-        stdout: "piped",
-        stderr: "piped",
-      }).spawn();
+    if (!existsSync("./.nativize/")) {
+      await Deno.mkdir("./.nativize/");
+    }
 
-      process.stdout.pipeTo(Deno.stdout.writable, { preventClose: true });
-      process.stderr.pipeTo(Deno.stderr.writable, { preventClose: true });
-
-      await process.status;
-    } catch (error) {
-      console.error(error);
+    if (!existsSync(backendPath)) {
+      try {
+        await new Deno.Command("git", {
+          args: [
+            "clone",
+            `https://github.com/nativize/nativize-${backend}`,
+            backendPath,
+          ],
+        }).spawn().status;
+      } catch (error) {
+        console.error(error);
+      }
     }
   }
 
   const { prepare, build, run, clean } = await import(
-    `file:${Deno.cwd()}/.nativize/${backend}/nativize.js`
+    `file:${Deno.cwd()}/${backendPath}/nativize.js`
   );
 
-  //await clean();
-  await prepare();
-  await build({ identifier: "com.example.myapplication" });
-  await run({
-    identifier: "com.example.myapplication",
-    avd: "Medium_Phone_API_35",
-  });
+  try {
+    await clean();
+    await prepare();
+    await build({ identifier: "com.nativize.test" });
+    await run({
+      identifier: "com.nativize.test",
+      avd: "Medium_Phone_API_35",
+    });
+  } catch (error) {
+    console.error(error);
+  }
 }
