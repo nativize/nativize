@@ -4,13 +4,13 @@ if (import.meta.main) {
   const { parseArguments } = await import("./src/command.js");
   const { commands, options } = parseArguments(Deno.args);
 
-  let backendPath = options["--backend-path"][0];
+  let backendPath = options["--backend-path"];
 
   if (!backendPath) {
     const { defaultBackend } = await import("./src/platform.js");
     const { existsSync } = await import("@std/fs");
 
-    const backend = options["--backend"][0] ?? defaultBackend[Deno.build.os];
+    const backend = options["--backend"] ?? defaultBackend[Deno.build.os];
 
     backendPath = `./.nativize/${backend}`;
 
@@ -34,7 +34,7 @@ if (import.meta.main) {
   }
 
   const { prepare, build, run, clean } = await import(
-    `file:${Deno.cwd()}/${backendPath}/nativize.js`
+    `${backendPath}/nativize.js`
   );
 
   try {
