@@ -40,10 +40,14 @@ if (import.meta.main) {
   try {
     await clean();
     await prepare();
-    await build({ identifier: "com.nativize.test" });
+    await build({
+      identifier: "com.nativize.abcde",
+      url: "https://vscode.dev",
+    });
+
     await run({
-      identifier: "com.nativize.test",
-      avd: "Medium_Phone_API_35",
+      identifier: "com.nativize.abcde",
+      avd: "Medium_Phone_API_35", //android specific
     });
   } catch (error) {
     console.error(error);
