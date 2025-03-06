@@ -44,7 +44,7 @@
 <td colspan="2">SwiftUI</td>
 <td>
 
-GTK[^GTK]
+GTK 4
 
 </td>
 <td></td>
@@ -67,6 +67,3 @@ GTK[^GTK]
 </tr>
 </tbody>
 </table>
-
-[^GTK]: [GTK 4 + WebKitGTK 6.0](https://github.com/nativize/nativize-webkitgtk)  
-	[GTK 3 + WebKit2GTK 4.1](https://github.com/nativize/nativize-webkit2gtk)
