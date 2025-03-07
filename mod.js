@@ -12,7 +12,7 @@ if (import.meta.main) {
 
     const backend = options["--backend"] ?? defaultBackend[Deno.build.os];
 
-    backendPath = `./.nativize/${backend}`;
+    backendPath = `${Deno.cwd()}/.nativize/${backend}`;
 
     if (!existsSync("./.nativize/")) {
       await Deno.mkdir("./.nativize/");
@@ -34,7 +34,7 @@ if (import.meta.main) {
   }
 
   const { prepare, build, run, clean } = await import(
-    `${backendPath}/nativize.js`
+    `file://${backendPath}/nativize.js`
   );
 
   try {
@@ -42,14 +42,15 @@ if (import.meta.main) {
     await prepare();
     await build({
       identifier: "com.nativize.abcde",
-      url: "https://vscode.dev",
+      url: "https://naver.com",
     });
-
     await run({
       identifier: "com.nativize.abcde",
       avd: "Medium_Phone_API_35", //android specific
     });
   } catch (error) {
     console.error(error);
+  } finally {
+    console.log("well... finally?");
   }
 }
