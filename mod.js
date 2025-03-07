@@ -1,5 +1,37 @@
 //export stuffs
 
+
+//TODO:
+// [ ] command line arguments
+//   | commands:
+//   |   help
+//   |   version
+//   |   init? new?
+//   |   check
+//   |   prepare
+//   |   build
+//   |   run
+//   |   clean
+//   | options:
+//   |   --backend: specifies backend implementation
+//   |   --backend-path: specifies backend implementation path (ignores --backend)
+//   |   --platform: specifies target platform
+//   |   --config: specifies configuration file path
+// [ ] configuration
+//   | configuration file should be either in json(c)/js/ts format
+// [ ] we need to add a way to handle target platform
+//   | target platform can be passed to backend build process
+//   | which means, each backend's `target` should filter supported platforms
+//   | for example, webview2 backend should only support windows
+//   | and qtwebengine should only support macos, linux, windows
+//   | and webview should only support android
+// [ ] implement `webkit2` backend
+//     [ ] buy a mac
+//     [ ] go ahead
+// [ ] each backend's command error handling
+//   | when command fails, it should throw an error, so that we can catch it,
+//   | then prevent running program even without build completed
+
 if (import.meta.main) {
   const { parseArguments } = await import("./src/command.js");
   const { commands, options } = parseArguments(Deno.args);
