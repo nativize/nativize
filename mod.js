@@ -36,6 +36,14 @@ if (import.meta.main) {
   const { parseArguments } = await import("./src/command.js");
   const { commands, options } = parseArguments(Deno.args);
 
+  // configuration here?
+  // load configuration
+  // if configuration path is not provided, use default configuration path
+  // if configuration file is json/jsonc, whatever those are, parse it
+  // if configuration file is js/ts, import it, then get default export
+  //   this js/ts file should return configuration object
+
+
   let backendPath = options["--backend-path"];
 
   if (!backendPath) {
