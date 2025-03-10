@@ -3,7 +3,21 @@
 > [!WARNING]
 > This project is currently in its early stages of development and is not yet suitable for production use.
 
+
+## How to use
+
+**You can't. Yet**
+
+## To do
+
+- [x] Initiate backend implementation.
+- [ ] Implement Nativize build API.
+- [ ] Implement Nativize runtime API.
+- [ ] Finish MVP.
+- [ ] Recreate this (and backend) repositories.
+
 ## Backend
+
 <table>
 <thead>
 <tr>
@@ -42,11 +56,7 @@
 </td>
 <td></td>
 <td colspan="2">SwiftUI</td>
-<td>
-
-GTK 4
-
-</td>
+<td>GTK 4</td>
 <td></td>
 </tr>
 <tr>
