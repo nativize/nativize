@@ -3,7 +3,11 @@ export const help = () => {
 };
 
 export const version = () => {
-  console.log("version");
+  // get module version.
+  console.log(
+    JSON.parse(Deno.readTextFileSync(`${import.meta.dirname}/../deno.json`))
+      .version,
+  );
 };
 
 export const check = () => {
